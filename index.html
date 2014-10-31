@@ -3,28 +3,24 @@
 <head>
   <title>Video Preview!</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="./flowplayer.js"></script>
+  <script type="text/javascript" src="http://www.longtailvideo.com/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+  <link rel="stylesheet" href="http://releases.flowplayer.org/5.5.0/skin/minimalist.css">
 </head>
 <body>
-  <div id="video-preview" style="display:block;width:425px;height:300px;">'error loading video'</div>
+
+  <div id="player" style="width: 300px; height: 250px;float:left;"></div>
+  <div id="companion" style="width:300px;height:250px;float:left;margin-left:5px;background:#F1F1F1;border:1px solid red;"></div>
 
   <script type='text/javascript'>
-    flowplayer('video-preview', { src: './flowplayer.js', wmode: 'opaque'}, {
-      "playlist": [
-        './example.mp4'
-      ],
+    flowplayer("player", "http://www.longtailvideo.com/content/ova/flowplayer/flowplayer-3.2.7.swf", {
       "plugins": {
-        "controls": {
-          "autoHide": "never"
-        },
         "ova": {
-          "url": "./ova.swf",
+          "url": "http://www.longtailvideo.com/content/ova/flowplayer/ova-1.1.0.swf",
+          "debug": { "levels": "fatal,config,vast_template,vpaid,http_calls" },
           "autoPlay": true,
           "ads": {
             "companions": {
-              "regions": [
-                { "id":"companion", "width":300, "height":250 }
-              ]
+              "regions": [{ "id":"companion", "width":300, "height":250 }]
             },
             "schedule": [
               {
@@ -40,3 +36,5 @@
 
 </body>
 </html>
+
+
